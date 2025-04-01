@@ -2,6 +2,7 @@ import pygame
 import sys
 import random as rand
 
+
 # Game Configurations
 SCREEN_WIDTH, SCREEN_HEIGHT = 580, 624
 FLOOR_Y_POS = 530
@@ -21,14 +22,14 @@ def load_image(path, scale=True):
     img = pygame.image.load(path).convert_alpha()
     return pygame.transform.scale2x(img) if scale else img
 
-background_surface = load_image("../../PythonProject/CatJet/Images/background.png")
-floor_surface = load_image("../../PythonProject/CatJet/Images/base.png")
-pipe_surface = load_image("../../PythonProject/CatJet/Images/pipe-red.png")
+background_surface = load_image("assets/background.png")
+floor_surface = load_image("assets/base.png")
+pipe_surface = load_image("assets/pipe-red.png")
 
 cat_frames = [
-    load_image("../../PythonProject/CatJet/Images/catjet-less-turbine.png"),
-    load_image("../../PythonProject/CatJet/Images/catjet-stable-turbine.png"),
-    load_image("../../PythonProject/CatJet/Images/catjet-up.png")
+    load_image("assets/catjet-less-turbine.png"),
+    load_image("assets/catjet-stable-turbine.png"),
+    load_image("assets/catjet-up.png")
 ]
 
 # Icon and Title
@@ -41,9 +42,9 @@ def load_sound(path, volume):
     sound.set_volume(volume)
     return sound
 
-turbine_sound = load_sound("../../PythonProject/CatJet/Sounds/sfx_jet_turbine.wav", 0.08)
-death_sound = load_sound("../../PythonProject/CatJet/Sounds/sfx_hit.wav", 0.05)
-score_sound = load_sound("../../PythonProject/CatJet/Sounds/sfx_point.wav", 0.02)
+turbine_sound = load_sound("assets/sfx_jet_turbine.wav", 0.08)
+death_sound = load_sound("assets/sfx_hit.wav", 0.05)
+score_sound = load_sound("assets/sfx_point.wav", 0.02)
 
 # Game Variables
 floor_x_pos = 0
@@ -173,5 +174,5 @@ while True:
         score_display("game_over")
 
     pygame.display.update()
-    clock.tick(120)
+    clock.tick(60)
 
